@@ -22,7 +22,7 @@ module.exports = {
           res.render('single_board', {board:result})
       })
       .catch((error)=>{
-          console.log('error:' error);
+          console.log('error:', error);
           res.sendStatus(500);
       })
   },
@@ -38,7 +38,7 @@ module.exports = {
         res.render('single_board', {board:result})
     })
     .catch((error)=>{
-        console.log('error:' error);
+        console.log('error:', error);
         res.sendStatus(500);
     })
   },
@@ -51,7 +51,7 @@ module.exports = {
         res.render('single_board', {board:result})
     })
     .catch((error)=>{
-        console.log('error:' error);
+        console.log('error:', error);
         res.sendStatus(500);
     })
   },
@@ -67,7 +67,7 @@ module.exports = {
       res.render('single_board',{contributors:results})
     })
     .catch((error)=>{
-        console.log('error:' error);
+        console.log('error:', error);
         res.sendStatus(500);
     })
   },
@@ -79,7 +79,7 @@ module.exports = {
       res.render('single_board',{contributors:results})
     })
     .catch((error)=>{
-        console.log('error:' error);
+        console.log('error:', error);
         res.sendStatus(500);
     })
 }
