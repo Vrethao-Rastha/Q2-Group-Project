@@ -7,7 +7,8 @@ module.exports = {
     if(!req.session.user){
       req.session.user = {}
     }
-
+      req.session.save(()=>{
     res.render("index");
+  })
   },
 }
