@@ -3,6 +3,11 @@ const knex = require("../db/knex.js");
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   get: function(req, res) {
-    res.render('index');
+
+    if(!req.session.user){
+      req.session.user = {}
+    }
+
+    res.render("index");
   },
 }
