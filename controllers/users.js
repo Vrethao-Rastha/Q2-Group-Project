@@ -3,18 +3,25 @@ const knex = require("../db/knex.js");
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   displaylogin: function(req, res) {
-    res.send("Hello");
+    res.render('login');
   },
 
   login: function(req, res) {
-    res.send("Hello");
+
   },
 
   displayregister: function(req, res) {
-    res.send("Hello");
+    res.render('register');
   },
 
   register: function(req, res) {
-    res.send("Hello");
+    knex('users').insert({
+      user_name: req.body.user_name,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(() => {
+        res.redirect('/login')
+      })
   },
 }
