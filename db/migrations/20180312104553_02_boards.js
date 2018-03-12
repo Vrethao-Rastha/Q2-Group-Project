@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
       table.string('board_name')
       table.integer('owner_id')
       table.timestamp('updated_at').defaultTo(knex.fn.now());
-      table.timestamp('ucreated_at').defaultTo(knex.fn.now());
+      table.timestamp('created_at').defaultTo(knex.fn.now());
     })
 };
 
