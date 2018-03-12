@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('cards', function(table){
     table.increments();
-      table.string('card')
+      table.string('card_name')
       table.integer('column_id')
       table.text('content')
       table.timestamp('updated_at').defaultTo(knex.fn.now());
