@@ -82,4 +82,6 @@ module.exports = {
         console.log('error:', error);
         res.sendStatus(500);
     })
+},
+
 }
