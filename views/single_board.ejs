@@ -27,9 +27,10 @@
   </header>
   <div class="container">
 
-
-
-
+<p><% for(var i = 0; i < boardInfo.length; i++){ %>
+   <p><%= boardInfo[i] %></p>
+   <p><%= boardInfo[i].board_name %></p>
+<% } %></p>
 
   </div><!--end container div-->
 

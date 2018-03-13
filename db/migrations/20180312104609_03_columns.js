@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('columns', function(table){
-    table.increments();
+    table.increments('column_id');
       table.string('column_name')
       table.integer('board_id')
       table.timestamp('updated_at').defaultTo(knex.fn.now());
