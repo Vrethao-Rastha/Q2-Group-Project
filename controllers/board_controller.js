@@ -4,16 +4,17 @@ module.exports = {
 
   //NEEDS USER ID IN ROUTE (/:ID)
   boards: function(req, res){
-    knex('boards')
-      .where('user_id', req.session.user.id)
-      .then((result)=>{
 
+    knex('boards')
+    // BAND-AID TO LOAD WITH TEST DATA, CHANGE FROM USER AT [0] ONCE WE CAN ADD BOARDS FROM INSIDE THE APP
+      .where('owner_id', req.session.user[0].id)
+      .then((result)=>{
+        res.render('boards'/*,{}*/)
       })
       .catch((error)=>{
         console.log(error);
         res.sendStatus(500);
       })
-    res.render('boards'/*,{}*/)
   },
 
 
@@ -24,7 +25,7 @@ module.exports = {
 
 // loop through all the columns in a board
 // for each column, query the database to get all cards within column
-// add cards to array in column object 
+// add cards to array in column object
 // example
 // [{column_id: 1, column_name: 'blach', cards: [database results for cards within column]},{column_id: 2},{column_id: 3}]
   single_board: function(req, res){
@@ -34,25 +35,25 @@ module.exports = {
       .innerJoin('columns', {'boards.board_id': 'columns.board_id'})
       .innerJoin('cards', {'columns.column_id': 'cards.column_id'})
       .then((result) =>{
-        let newArray = [{column_id: result[0].column_id}];
+        //let newArray = [{column_id: result[0].column_id}];
 
-        for (let i = 0; i < result.length; i++) {
-          column_id: result[i].column_id;
-          for (let j = 0; i < )
-          newArray.push({
-            column_id: result[i].column.id,
-            column_name: result[i].column_name,
-
-          })
-        }
+        // for (let i = 0; i < result.length; i++) {
+        //   column_id: result[i].column_id;
+        //   for (let j = 0; i < )
+        //   newArray.push({
+        //     column_id: result[i].column.id,
+        //     column_name: result[i].column_name,
+        //
+        //   })
+        // }
           // knex('cards')
           //
           // console.log(result)
           //
-          // res.render('single_board', {
-          //   boardInfo: result
-          });
-      })
+          res.render('single_board', {
+            boardInfo: result
+           });
+       })
       .catch((error)=>{
         console.log(error);
         res.sendStatus(500);
