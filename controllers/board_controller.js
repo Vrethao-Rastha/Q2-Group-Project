@@ -35,13 +35,13 @@ module.exports = {
     knex('boards')
       .where('boards.board_id', req.params.board_id)
       .innerJoin('columns', 'boards.board_id', 'columns.board_id')
-      .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
+       .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
       .then((result) =>{
 
-        console.log(result)
 
         for (let i = 0; i < result.length; i++) {
             newArray.push({
+              board_name:result[i].board_name,
               column_id:result[i].column_id,
               column_name:result[i].column_name,
               column_cards: [],
@@ -72,9 +72,10 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-          console.log(finalArray)
+        console.log('finalArray:', finalArray)
           res.render('single_board', {
           boardInfo: finalArray
+
       })
     //   .catch((error)=>{
     //     console.log(error);

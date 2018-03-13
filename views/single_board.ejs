@@ -28,7 +28,6 @@
 
   <div class="container">
 
-    <h2><%= boardInfo[0].board_name %></h2>
     <hr>
     <div class="row">
         <% for (let i = 0; i < 6; i++) { %>
@@ -65,19 +64,29 @@ Launch demo modal
 </button>
 
 <!-- MODAL -->
+<% for(let i = 0; i < boardInfo.length; i++) { %>
+  <%   var cards = boardInfo[i].column_cards; %>
+  <%   for (var j = 0; j < cards.length; j++){ %>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <h5 class="modal-title" id="exampleModalLabel"><%= cards[j].card_name %></h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <% for(let i = 0; i < boardInfo.length; i++) { %>
+
+
+
     <div class="modal-body">
-      <p><%= boardInfo[i].content %></p>
+
+      <p><%= cards[j].content %></p>
+      <p><%= cards[j] %> </p>
+      <% } %>
+
     </div>
+
     <% } %>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
