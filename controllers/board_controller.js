@@ -4,7 +4,34 @@ module.exports = {
 
   //NEEDS USER ID IN ROUTE (/:ID)
   boards: function(req, res){
+    knex('boards')
+      .where('user_id', req.session.user.id)
+      .then((result)=>{
+
+      })
+      .catch((error)=>{
+        console.log(error);
+        res.sendStatus(500);
+      })
     res.render('boards'/*,{}*/)
+  },
+
+  single_board: function(req, res){
+    knex('boards')
+      .where('boards.board_id', req.params.board_id)
+      .innerJoin('columns', 'boards.board_id', 'columns.board_id')
+      .then((result) =>{
+
+          
+
+          res.render('single_board', {
+            boardInfo: result
+          });
+      })
+      .catch((error)=>{
+        console.log(error);
+        res.sendStatus(500);
+      })
   },
   //PASS LIST OF CONTRIBUTORS FOR SINGLE BOARD
   //INNER JOIN THIS TO GET NAME OF CONTRUBUTOR ON FUTURE QUERRY

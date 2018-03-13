@@ -26,7 +26,9 @@ module.exports = function(app) {
   //BOARD CREATION AND EDITING
   app.get('/boards', board_controller.boards);
 
-  app.get('/single_board/contributors', board_controller.contributors);
+  app.get('/board/:board_id', board_controller.single_board);
+
+  app.get('/board/:id/contributors', board_controller.contributors);
 
   app.post('/create/board', board_controller.create_board);
   //COLUMN CREATION AND EDITING
