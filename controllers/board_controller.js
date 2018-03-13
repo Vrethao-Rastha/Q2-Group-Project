@@ -51,7 +51,7 @@ module.exports = {
               if (newArray[i].column_id === result[j].parent_column_id) {
                 newArray[i].column_cards.push({
                   card_id: result[j].parent_column_id,
-                  card_name: result[j].column_name,
+                  card_name: result[j].card_name,
                   content: result[j].content,
                 })
               }
@@ -72,7 +72,7 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-        console.log('finalArray:', finalArray)
+        console.log('finalArray:', finalArray[0].column_cards[1].card_name)
           res.render('single_board', {
           boardInfo: finalArray
 
