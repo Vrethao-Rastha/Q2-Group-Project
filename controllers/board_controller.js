@@ -19,10 +19,13 @@ module.exports = {
   single_board: function(req, res){
     knex('boards')
       .where('boards.board_id', req.params.board_id)
-      .innerJoin('columns', 'boards.board_id', 'columns.board_id')
+      .innerJoin('columns', {'boards.board_id': 'columns.board_id'})
+      .innerJoin('cards', {'columns.column_id': 'cards.column_id'})
       .then((result) =>{
 
-          
+          knex('cards')
+
+          console.log(result)
 
           res.render('single_board', {
             boardInfo: result
@@ -33,6 +36,7 @@ module.exports = {
         res.sendStatus(500);
       })
   },
+
   //PASS LIST OF CONTRIBUTORS FOR SINGLE BOARD
   //INNER JOIN THIS TO GET NAME OF CONTRUBUTOR ON FUTURE QUERRY
   contributors: function(req, res){
