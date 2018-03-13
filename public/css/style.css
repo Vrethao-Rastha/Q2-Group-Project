@@ -1,3 +1,22 @@
+h2 {
+  color:silver;
+  margin-top:10px;
+}
+
+h3 {
+  color:#007bff;
+}
+
 .container {
   text-align: center;
+}
+
+.single-board {
+  min-width: 200px;
+  min-height:200px;
+  background-color: #f2f2f2;
+  margin-top:25px;
+  border-radius:7px;
+  padding-top:40%;
+  padding-bottom:40%;
 }
