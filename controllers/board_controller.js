@@ -4,16 +4,17 @@ module.exports = {
 
   //NEEDS USER ID IN ROUTE (/:ID)
   boards: function(req, res){
-    knex('boards')
-      .where('user_id', req.session.user.id)
-      .then((result)=>{
 
+    knex('boards')
+    // BAND-AID TO LOAD WITH TEST DATA, CHANGE FROM USER AT [0] ONCE WE CAN ADD BOARDS FROM INSIDE THE APP
+      .where('owner_id', req.session.user[0].id)
+      .then((result)=>{
+        res.render('boards'/*,{}*/)
       })
       .catch((error)=>{
         console.log(error);
         res.sendStatus(500);
       })
-    res.render('boards'/*,{}*/)
   },
 
 
@@ -34,13 +35,13 @@ module.exports = {
     knex('boards')
       .where('boards.board_id', req.params.board_id)
       .innerJoin('columns', 'boards.board_id', 'columns.board_id')
-      .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
+       .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
       .then((result) =>{
 
-        console.log(result)
 
         for (let i = 0; i < result.length; i++) {
             newArray.push({
+              board_name:result[i].board_name,
               column_id:result[i].column_id,
               column_name:result[i].column_name,
               column_cards: [],
@@ -71,9 +72,10 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-          console.log(finalArray)
+        console.log('finalArray:', finalArray)
           res.render('single_board', {
           boardInfo: finalArray
+
       })
     //   .catch((error)=>{
     //     console.log(error);
