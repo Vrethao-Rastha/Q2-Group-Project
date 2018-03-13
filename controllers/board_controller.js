@@ -24,39 +24,62 @@ module.exports = {
 
 // loop through all the columns in a board
 // for each column, query the database to get all cards within column
-// add cards to array in column object 
+// add cards to array in column object
 // example
 // [{column_id: 1, column_name: 'blach', cards: [database results for cards within column]},{column_id: 2},{column_id: 3}]
   single_board: function(req, res){
 
+    let newArray = [];
+
     knex('boards')
       .where('boards.board_id', req.params.board_id)
-      .innerJoin('columns', {'boards.board_id': 'columns.board_id'})
-      .innerJoin('cards', {'columns.column_id': 'cards.column_id'})
+      .innerJoin('columns', 'boards.board_id', 'columns.board_id')
+      .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
       .then((result) =>{
-        let newArray = [{column_id: result[0].column_id}];
+
+        console.log(result)
 
         for (let i = 0; i < result.length; i++) {
-          column_id: result[i].column_id;
-          for (let j = 0; i < )
-          newArray.push({
-            column_id: result[i].column.id,
-            column_name: result[i].column_name,
+            newArray.push({
+              column_id:result[i].column_id,
+              column_name:result[i].column_name,
+              column_cards: [],
+            })
 
-          })
+            for (let j = 0; j < result.length; j++) {
+              if (newArray[i].column_id === result[j].parent_column_id) {
+                newArray[i].column_cards.push({
+                  card_id: result[j].parent_column_id,
+                  card_name: result[j].column_name,
+                  content: result[j].content,
+                })
+              }
+            }
+
         }
-          // knex('cards')
-          //
-          // console.log(result)
-          //
-          // res.render('single_board', {
-          //   boardInfo: result
-          });
+
+        let finalObj = {};
+
+        for (let i = 0; i < newArray.length; i++) {
+          var columnID = newArray[i].column_id;
+          if (!finalObj[columnID]) {
+              finalObj[columnID] = newArray[i];
+          }
+        }
+
+        var finalArray = [];
+        for (key in finalObj){
+          finalArray.push(finalObj[key]);
+        }
+          console.log(finalArray)
+          res.render('single_board', {
+          boardInfo: finalArray
       })
-      .catch((error)=>{
-        console.log(error);
-        res.sendStatus(500);
-      })
+    //   .catch((error)=>{
+    //     console.log(error);
+    //     res.sendStatus(500);
+    //   })
+     })
   },
 
   //PASS LIST OF CONTRIBUTORS FOR SINGLE BOARD
