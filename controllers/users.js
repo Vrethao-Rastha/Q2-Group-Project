@@ -7,6 +7,26 @@ module.exports = {
   },
 
   login: function(req, res) {
+    let loginEmail = req.body.email;
+    let loginUsername = req.body.user_name;
+    let loginPassword = req.body.password;
+
+    knex('users').where('email', req.body.email)
+      .then((results) => {
+        if (!results[0]) {
+          res.redirect('/login');
+        }
+        if (results[0].password == req.body.password) {
+          req.session.user.push(results[0]);
+          req.session.save(() => {
+            res.redirect('/boards')
+          });
+
+        } else {
+          res.redirect('/login');
+        }
+      })
+
 
   },
 
@@ -23,5 +43,11 @@ module.exports = {
       .then(() => {
         res.redirect('/login')
       })
+  },
+
+  logout: function(req, res) {
+    req.session.user = []
+    res.redirect('/login');
+
   },
 }

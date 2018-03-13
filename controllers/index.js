@@ -5,10 +5,10 @@ module.exports = {
   get: function(req, res) {
 
     if(!req.session.user){
-      req.session.user = {}
+      req.session.user = [];
     }
-      req.session.save(()=>{
-    res.render("index");
-  })
+    req.session.save(()=>{
+      res.render("index");
+    })
   },
 }
