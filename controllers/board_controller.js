@@ -16,19 +16,41 @@ module.exports = {
     res.render('boards'/*,{}*/)
   },
 
+
+// for a single board,
+// query the database to get a list of columns
+// once we have the columns, add each to a separate object in results array
+// so data structure: [{column_id: 1, column_name, etc},{column_id: 2},{column_id: 3}]
+
+// loop through all the columns in a board
+// for each column, query the database to get all cards within column
+// add cards to array in column object 
+// example
+// [{column_id: 1, column_name: 'blach', cards: [database results for cards within column]},{column_id: 2},{column_id: 3}]
   single_board: function(req, res){
+
     knex('boards')
       .where('boards.board_id', req.params.board_id)
       .innerJoin('columns', {'boards.board_id': 'columns.board_id'})
       .innerJoin('cards', {'columns.column_id': 'cards.column_id'})
       .then((result) =>{
+        let newArray = [{column_id: result[0].column_id}];
 
-          knex('cards')
+        for (let i = 0; i < result.length; i++) {
+          column_id: result[i].column_id;
+          for (let j = 0; i < )
+          newArray.push({
+            column_id: result[i].column.id,
+            column_name: result[i].column_name,
 
-          console.log(result)
-
-          res.render('single_board', {
-            boardInfo: result
+          })
+        }
+          // knex('cards')
+          //
+          // console.log(result)
+          //
+          // res.render('single_board', {
+          //   boardInfo: result
           });
       })
       .catch((error)=>{
