@@ -44,17 +44,10 @@
 
     </div>
 
-<!--p><% for(var i = 0; i < boardInfo.length; i++){ %>
-   <p><%= boardInfo[i] %></p>
-   <p><%= boardInfo[i].board_name %></p>
-<% } %></p-->
 
   </div>
 
-<p><% for(var i = 0; i < boardInfo.length; i++){ %>
-   <p><%= boardInfo[i].column_name %></p>
-   <p><%= boardInfo[i].content %></p>
-<% } %></p>
+
 
 
 <!-- MODAL FUNCTIONALITY -->
@@ -66,7 +59,8 @@ Launch demo modal
 <!-- MODAL -->
 <% for(let i = 0; i < boardInfo.length; i++) { %>
   <%   var cards = boardInfo[i].column_cards; %>
-  <%   for (var j = 0; j < cards.length; j++){ %>
+  <%   for (var j = 0; j < cards.length; j++) { %>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
@@ -77,12 +71,9 @@ Launch demo modal
       </button>
     </div>
 
-
-
     <div class="modal-body">
 
       <p><%= cards[j].content %></p>
-      <p><%= cards[j] %> </p>
       <% } %>
 
     </div>
