@@ -6,7 +6,7 @@ const column_controller = require("../controllers/column_controller.js")
 const card_controller = require("../controllers/card_controller.js")
 
 
-module.exports = function(app){
+module.exports = function(app) {
   // LOGIN AND AUTHENICATION PATHS
   app.get('/', index.get);
 
@@ -19,6 +19,10 @@ module.exports = function(app){
   app.get('/register', users.displayregister);
 
   app.post('/register', users.register);
+
+  //Non user page blocking middleware
+  app.use(authMiddleware);
+
   //BOARD CREATION AND EDITING
   app.get('/boards', board_controller.boards);
 
@@ -43,6 +47,12 @@ module.exports = function(app){
   app.post('/edit/card/:id', card_controller.edit_card);
 
   app.post('/delete/card/:id', card_controller.delete_card);
+}
 
-
+function authMiddleware(req, res, next) {
+  if (!req.session.user[0]) {
+    res.redirect('/login')
+  } else {
+    next();
+  }
 }
