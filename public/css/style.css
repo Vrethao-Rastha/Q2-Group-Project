@@ -20,3 +20,12 @@ h3 {
   padding-top:40%;
   padding-bottom:40%;
 }
+.single-column {
+  min-width: 200px;
+  min-height:200px;
+  background-color: #f2f2f2;
+  margin-top:25px;
+  border-radius:7px;
+  padding-top:40%;
+  padding-bottom:40%;
+}

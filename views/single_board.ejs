@@ -28,12 +28,27 @@
 
   <div class="container">
 
-  </div>
+    <h2><%= boardInfo[0].board_name %></h2>
+    <hr>
+    <div class="row">
+        <% for (let i = 0; i < 6; i++) { %>
+          <div class="col-md-3">
+            <div class="single-column">
+              <% for (let i = 0; i < 6; i++) { %>
+              <div class="single-card">
+                Testing
+              </div>
+              <% } %>
+            </div>
+          </div>
+          <% } %>
 
-<p><% for(var i = 0; i < boardInfo.length; i++){ %>
+    </div>
+
+<!--p><% for(var i = 0; i < boardInfo.length; i++){ %>
    <p><%= boardInfo[i] %></p>
    <p><%= boardInfo[i].board_name %></p>
-<% } %></p>
+<% } %></p-->
 
   </div><!--end container div-->
 
