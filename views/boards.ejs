@@ -55,7 +55,7 @@
           <div class="col-md-3">
             <div class="single-board">
               <a href="#" onclick="displayBoardNameEditInput('card<%= `${i}` %>')"><div id="boardName"><h3 class="board-name">Board Name</h3></div></a>
-              <div id="card<%= `${i}` %>" class="">
+              <div id="card<%= `${i}` %>" class="board-name-input">
                 <form class="" action="/create/board" method="post">
                   <input class="form-control board-name-input" type="text" name="board_name" placeholder="Enter Board Name">
                 </form>
