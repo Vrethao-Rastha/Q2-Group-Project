@@ -26,6 +26,16 @@
     </nav>
   </header>
 
+
+
+
+
+
+
+
+
+
+
   <div class="container">
     <h2 class=""><%= boardInfo[0].board_name %></h2>
     <hr>
@@ -43,7 +53,7 @@
                   <h5><%= boardInfo[i].column_cards[j].card_name %></h5>
                 </div>
                 <div class="card-content">
-                  <p><%= boardInfo[i].column_cards[j].content %>...</p>
+                  <a href="#" data-toggle="modal" data-target="#exampleModal"><p><%= boardInfo[i].column_cards[j].content %></p></a>
                 </div>
               </div>
 
@@ -60,8 +70,7 @@
 
 <!-- MODAL FUNCTIONALITY -->
 <!-- MODAL BUTTON -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Launch demo modal
+
 </button>
 
 <!-- MODAL -->
