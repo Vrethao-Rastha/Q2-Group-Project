@@ -22,6 +22,7 @@ p {
   border-radius:7px;
   padding-top:40%;
   padding-bottom:40%;
+  box-shadow: 1px 1px 2px silver;
 }
 .single-column {
   min-width: 250px;
@@ -50,4 +51,16 @@ p {
 }
 .card-name {
   color:silver;
+}
+.add-board-plus {
+  font-size: 25px;
+  color: #007bff;
+}
+.form-control {
+  max-width:80%;
+  margin:auto;
+  padding-left:12%;
+}
+.board-name-input {
+  display:none;
 }
