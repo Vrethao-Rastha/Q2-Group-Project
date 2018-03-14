@@ -38,7 +38,6 @@ module.exports = {
        .innerJoin('cards', 'columns.column_id', 'cards.parent_column_id')
       .then((result) =>{
 
-
         for (let i = 0; i < result.length; i++) {
             newArray.push({
               board_name:result[i].board_name,
@@ -72,7 +71,8 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-        console.log('finalArray:', finalArray[0].column_cards[1].card_name)
+        
+
           res.render('single_board', {
           boardInfo: finalArray
 

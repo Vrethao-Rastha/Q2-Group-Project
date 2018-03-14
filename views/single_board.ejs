@@ -43,8 +43,34 @@
                   <h5><%= boardInfo[i].column_cards[j].card_name %></h5>
                 </div>
                 <div class="card-content">
-                  <p><%= boardInfo[i].column_cards[j].content %>...</p>
+                  <a href="#"  data-toggle="modal" data-target="#theModal-<%= `${j}` %>"><p><%= boardInfo[i].column_cards[j].content %></p></a>
                 </div>
+                <div class="modal fade" id="theModal-<%= `${j}` %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="theModalTitle"><%= boardInfo[i].column_cards[j].card_name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- MODAL -->
+                    <div class="modal-body">
+
+                      <p id="theModalContent"> <%= boardInfo[i].column_cards[j].content %> </p>
+
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
               </div>
 
               <% } %>
@@ -61,40 +87,10 @@
 
 <!-- MODAL FUNCTIONALITY -->
 <!-- MODAL BUTTON -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Launch demo modal
+
 </button>
 
 <!-- MODAL -->
-<% for(let i = 0; i < boardInfo.length; i++) { %>
-  <%   var cards = boardInfo[i].column_cards; %>
-  <%   for (var j = 0; j < cards.length; j++) { %>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel"><%= cards[j].card_name %></h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <div class="modal-body">
-
-      <p><%= cards[j].content %></p>
-      <% } %>
-
-    </div>
-
-    <% } %>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-  </div>
-</div>
-</div>
 
 </div><!--end container div-->
 
