@@ -24,7 +24,7 @@ module.exports = function(app) {
   app.use(authMiddleware);
 
   //BOARD CREATION AND EDITING
-  app.get('/boards', board_controller.boards);
+  app.get('/board_list', board_controller.boards);
 
   app.get('/board/:board_id', board_controller.single_board);
 

@@ -115,7 +115,7 @@ module.exports = {
             content: 'Add your content here!',
           })
           .then((result)=>{
-          res.redirect('/boards')
+          res.redirect('/board_list')
         })
       })
     })
