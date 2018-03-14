@@ -9,7 +9,7 @@ module.exports = {
     // BAND-AID TO LOAD WITH TEST DATA, CHANGE FROM USER AT [0] ONCE WE CAN ADD BOARDS FROM INSIDE THE APP
       .where('owner_id', req.session.user[0].id)
       .then((result)=>{
-        res.render('boards'/*,{}*/)
+        res.render('boards',{boardInfo:result})
       })
       .catch((error)=>{
         console.log(error);
@@ -71,7 +71,7 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-        
+
 
           res.render('single_board', {
           boardInfo: finalArray
@@ -91,14 +91,34 @@ module.exports = {
   },
 
   create_board: function(req, res){
+    // console.log(req.session.user[0].id)
     knex('boards')
       .insert({
         board_name: req.body.board_name,
-        owner_id: req.session.user.id
+        owner_id: req.session.user[0].id,
       })
-      .then((result)=>{
-          res.render('single_board', {board:result})
+      .returning('board_id')
+      .then((data)=>{
+        knex('columns')
+        .insert({
+          column_name: 'New Column',
+          //will only work on first created object, need to fix this
+          board_id: data[0]
+        })
+        .returning('column_id')
+        .then((theData)=>{
+          knex('cards')
+          .insert({
+            card_name: 'New Card',
+            //will only work on first created object, need to fix this
+            parent_column_id: theData[0],
+            content: 'Add your content here!',
+          })
+          .then((result)=>{
+          res.redirect('/boards')
+        })
       })
+    })
       .catch((error)=>{
           console.log('error:', error);
           res.sendStatus(500);
