@@ -34,15 +34,16 @@
           <div class="col-md-3">
 
             <div class="single-column">
-              <div class="column-name"><%= boardInfo[i].column_name %></div>
+              <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
+              <hr>
               <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
 
               <div class="single-card">
                 <div class="card-name">
-                  <%= boardInfo[i].column_cards[j].card_name %>
+                  <h5><%= boardInfo[i].column_cards[j].card_name %></h5>
                 </div>
                 <div class="card-content">
-                  <%= boardInfo[i].column_cards[j].content %>...
+                  <p><%= boardInfo[i].column_cards[j].content %>...</p>
                 </div>
               </div>
 
@@ -56,8 +57,6 @@
 
     </div>
 
-
-  </div>
 
 <!-- MODAL FUNCTIONALITY -->
 <!-- MODAL BUTTON -->
@@ -96,7 +95,7 @@ Launch demo modal
 </div>
 </div>
 
-  </div><!--end container div-->
+</div><!--end container div-->
 
 
 
