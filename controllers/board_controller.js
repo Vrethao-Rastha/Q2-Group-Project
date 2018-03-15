@@ -91,7 +91,6 @@ module.exports = {
   },
 
   create_board: function(req, res){
-    // console.log(req.session.user[0].id)
     knex('boards')
       .insert({
         board_name:req.body.board_name,
