@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Welcome</title>
+  <title>Admin Login</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -26,11 +26,15 @@
     </nav>
   </header>
   <div class="container">
-    <div><a href="/login">Login</a></div>
-    <div><a href="/register">Create Account</a></div>
-    
 
+    <h2>Admin Login</h2>
 
+    <form class="login-form" action="/admin" method="post">
+      <input type="text" name="user_name" value="" placeholder="Username">
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
 
   </div><!--end container div-->
 
