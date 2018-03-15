@@ -51,7 +51,7 @@ module.exports = function(app) {
 
   app.post('/edit/board/:board_id/card/:id', card_controller.edit_card);
 
-  app.post('/delete/card/:id', card_controller.delete_card);
+  app.get('/delete/board/:board_id/card/:card_id', card_controller.delete_card);
 
   //ADMIN ROUTES
   app.get('/admin', admin.home_page)

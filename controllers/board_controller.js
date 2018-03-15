@@ -72,7 +72,6 @@ module.exports = {
         for (key in finalObj){
           finalArray.push(finalObj[key]);
         }
-        console.log(finalArray)
 
           res.render('single_board', {
           boardInfo: finalArray, boardID: boardID
