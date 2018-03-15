@@ -4,7 +4,7 @@ const users = require("../controllers/users.js");
 const board_controller = require("../controllers/board_controller.js");
 const column_controller = require("../controllers/column_controller.js")
 const card_controller = require("../controllers/card_controller.js")
-
+const admin = require("../controllers/admin.js")
 
 module.exports = function(app) {
   // LOGIN AND AUTHENICATION PATHS
@@ -31,6 +31,7 @@ module.exports = function(app) {
   app.get('/board/:id/contributors', board_controller.contributors);
 
   app.post('/create/board', board_controller.create_board);
+
   //COLUMN CREATION AND EDITING
   app.get('/columns', column_controller.columns);
 
@@ -51,6 +52,10 @@ module.exports = function(app) {
   app.post('/delete/card/:id', card_controller.delete_card);
 
   //ADMIN ROUTES
+  app.get('/admin', admin.home_page)
+
+  app.post('/delete/board/:id', admin.delete_board )
+
 }
 
 function authMiddleware(req, res, next) {

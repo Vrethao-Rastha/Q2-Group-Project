@@ -145,8 +145,8 @@ module.exports = {
     knex('boards')
     .where('id', req.params.id)
     .del()
-    .then((result)=>{
-        res.render('single_board', {board:result})
+    .then(()=>{
+        res.redirect('/boards_list')
     })
     .catch((error)=>{
         console.log('error:', error);

@@ -31,8 +31,35 @@
 
   </header>
 
+  <div class="container">
+    <h2>Admin</h2>
+    <hr>
 
 
+
+  <% for (let i = 0; i < theBoards.length; i++) { %>
+    <div class="col-md-3">
+      <div class="single-board">
+        <a href="/board/<%=`${theBoards[i].board_id}`%>" onclick="displayBoardNameEditInput('card<%= `${i}` %>')"><div id="boardName"><h3 class="board-name"><%= theBoards[i].board_name %></h3></div></a>
+        <div id="card<%= `${i}` %>" class="board-name-input">
+          <form class="" action="/create/board" method="post">
+            <input class="form-control board-name-input" type="text" name="board_name" placeholder="Enter Board Name">
+          </form>
+        </div>
+
+        </form>
+
+        <form class="" action="/delete/board/<%= `${theBoards[i].board_id}` %>" method="post">
+
+        <button href="/delete/board/<%= `${theBoards[i].board_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus"><i class="far fa-trash-alt"></i></div></button>
+      </form>
+
+
+      </div>
+    </div>
+    <% } %>
+
+  </div>
 
 
 
