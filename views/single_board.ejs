@@ -88,16 +88,19 @@
                       </button>
                     </div>
                     <!-- MODAL -->
-                    <div class="modal-body">
-                      <textarea name="name" rows="8" cols="80"><%= boardInfo[i].column_cards[j].content %></textarea>
-              
-                    </div>
+                    <form class="" action="/edit/board/<%= boardID[0] %>/card/<%= boardInfo[i].column_cards[j].card_id %>" method="post">
+                      <div class="modal-body">
+                        Card ID (for testing): <%= boardInfo[i].column_cards[j].card_id %>
+                        <textarea name="content" rows="8" cols="80"><%= boardInfo[i].column_cards[j].content %></textarea>
+
+                      </div>
 
 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
                 </div>

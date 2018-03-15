@@ -50,7 +50,7 @@ module.exports = {
             for (let j = 0; j < result.length; j++) {
               if (newArray[i].column_id === result[j].parent_column_id) {
                 newArray[i].column_cards.push({
-                  card_id: result[j].parent_column_id,
+                  card_id: result[j].card_id,
                   card_name: result[j].card_name,
                   content: result[j].content,
                 })

@@ -26,14 +26,13 @@ module.exports = {
 
     edit_card: function(req, res){
       knex('cards')
-      .where('id', req.params.id)
+      .where('card_id', req.params.id)
       .update({
-        card_name: req.body.card_name
-        // EDIT CARD CONTENT HERE?
-        //card_content: req.body.card_content
+        //card_name: req.body.card_name
+        content: req.body.content
       })
       .then((result)=>{
-          res.render('single_board', {card:result})
+          res.redirect(`/board/${req.params.board_id}`)
       })
       .catch((error)=>{
           console.log('error:', error);
