@@ -7,13 +7,15 @@ module.exports = {
   },
 
   create_column: function(req, res){
+    console.log(req.params.board_id)
     knex('columns')
     .where('id', req.body.id)
     .insert({
       column_name: req.body.column_name
     })
     .then((results)=>{
-      res.render('single_board', {column: results})
+      console.log(req.params.id)
+      res.redirect(`/board/${req.params.board_id}`)
     })
     .catch((error)=>{
         console.log('error:', error);
