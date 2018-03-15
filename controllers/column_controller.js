@@ -3,7 +3,7 @@ const knex = require("../db/knex.js");
 module.exports = {
 
   columns: function(req, res){
-
+    
   },
 
   create_column: function(req, res){

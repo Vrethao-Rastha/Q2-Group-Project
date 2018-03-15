@@ -7,15 +7,16 @@ module.exports = {
   },
 
   create_card: function(req, res){
+
     knex('cards')
-    .where('id', req.params.id)
+    .where('card_id', req.params.id)
     .insert({
       card_name: req.body.card_name,
       // ADD CARD CONTENT HERE?
       content: 'Add your content here!'
     })
     .then((results)=>{
-      res.render('single_board', {card:results})
+      res.redirect('/single_board')
     })
     .catch((error)=>{
         console.log('error:', error);
