@@ -7,7 +7,7 @@ module.exports = {
   },
 
   create_column: function(req, res){
-    console.log(req.params.board_id)
+    console.log(req.body.id)
     knex('columns')
     .where('id', req.body.id)
     .insert({
