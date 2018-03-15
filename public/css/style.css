@@ -9,6 +9,9 @@ h3 {
 p {
   color:gray;
 }
+textarea {
+  max-width:100%;
+}
 
 .container {
   text-align: center;
@@ -71,9 +74,9 @@ p {
   color: silver;
 }
 .form-control {
-  max-width:80%;
+  max-width:90%;
   margin:auto;
-  padding-left:12%;
+  padding-left:;
 }
 .board-name-input {
   display:none;
