@@ -39,9 +39,9 @@ module.exports = function(app) {
 
   app.post('/create/column/', column_controller.create_column);
 
-  app.post('edit/column/:id', column_controller.edit_column);
+  app.post('/edit/column/:id', column_controller.edit_column);
 
-  app.post('delete/column/:id', column_controller.delete_column);
+  app.post('/delete/column/:column_id', column_controller.delete_column);
 
   //CARDS ROUTES
 

@@ -53,8 +53,15 @@
         <% for (let i = 0; i < boardInfo.length; i++) { %>
           <div class="col-md-3">
 
+
+
+
             <div class="single-column">
-              <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
+              <div class="column-name"><h4><%= boardInfo[i].column_name %>
+                <form class="" action="/delete/column/<%= `${boardInfo[i].column_id}` %>" method="post">
+                  <input type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
+                  <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus">
+                    <i class="far fa-trash-alt"></i></div></button></form></h4></div>
               <hr>
               <!--Add card -->
 

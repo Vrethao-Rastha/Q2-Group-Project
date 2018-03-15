@@ -142,8 +142,6 @@ module.exports = {
   },
 
   delete_board: function(req, res){
-    console.log(req.params.board_id)
-
     knex('boards')
     .where('board_id', req.params.board_id)
     .del()
