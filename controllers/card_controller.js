@@ -41,11 +41,12 @@ module.exports = {
     },
 
     delete_card: function(req, res){
+      console.log("delete card route")
       knex('cards')
-      .where('id', req.params.id)
+      .where('card_id', req.params.card_id)
       .del()
       .then((result)=>{
-          res.render('single_board', {card:result})
+          res.redirect(`/board/${req.params.board_id}`)
       })
       .catch((error)=>{
           console.log('error:', error);
