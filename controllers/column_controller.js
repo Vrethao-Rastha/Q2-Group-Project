@@ -7,11 +7,18 @@ module.exports = {
   },
 
   create_column: function(req, res){
-
     knex('columns')
     .insert({
       board_id: req.body.board_id,
       column_name: req.body.column_name
+    })
+    .returning('column_id')
+    .then((data)=>{
+      knex('cards')
+      .insert({
+        card_name: 'New Card',
+        parent_column_id: data[0]
+      })
     })
     .then((results)=>{
       res.redirect(`/board/${req.body.board_id}`)
