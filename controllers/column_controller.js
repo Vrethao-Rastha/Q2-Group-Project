@@ -33,12 +33,12 @@ module.exports = {
 
   edit_column: function(req, res){
     knex('columns')
-    .where('id', req.params.id)
+    .where('column_id', req.params.column_id)
     .update({
-      board_name: req.body.column_name,
+      column_name: req.body.column_name,
     })
     .then((result)=>{
-        res.render('single_board', {column:result})
+        res.redirect('back')
     })
     .catch((error)=>{
         console.log('error:', error);

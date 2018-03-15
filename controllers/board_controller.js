@@ -126,13 +126,13 @@ module.exports = {
 
   update_board: function(req, res){
     knex('boards')
-    .where('id', req.params.id)
+    .where('board_id', req.params.board_id)
     .update({
       //for now, this only lets you change the name of the board.
       board_name: req.body.board_name,
     })
     .then((result)=>{
-        res.render('single_board', {board:result})
+        res.redirect('back')
     })
     .catch((error)=>{
         console.log('error:', error);

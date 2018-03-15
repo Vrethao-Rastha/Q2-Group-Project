@@ -12,6 +12,9 @@ p {
 textarea {
   max-width:100%;
 }
+.navbar {
+  padding:10px 11%;
+}
 
 .container {
   text-align: center;

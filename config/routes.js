@@ -34,12 +34,14 @@ module.exports = function(app) {
 
   app.post('/board/delete/:board_id', board_controller.delete_board);
 
+  app.post('/board/update/:board_id', board_controller.update_board);
+
   //COLUMN CREATION AND EDITING
   app.get('/columns', column_controller.columns);
 
   app.post('/create/column/', column_controller.create_column);
 
-  app.post('/edit/column/:id', column_controller.edit_column);
+  app.post('/edit/column/:column_id', column_controller.edit_column);
 
   app.post('/delete/column/:column_id', column_controller.delete_column);
 
