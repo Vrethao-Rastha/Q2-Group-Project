@@ -28,7 +28,7 @@ module.exports = {
       knex('cards')
       .where('card_id', req.params.id)
       .update({
-        //card_name: req.body.card_name
+        card_name: req.body.card_name,
         content: req.body.content
       })
       .then((result)=>{
