@@ -83,11 +83,11 @@ p {
 }
 .add-single-column {
   min-width: 250px;
-  min-height:210px;
+  min-height:250px;
   margin-top:25px;
   border-radius:7px;
   border: 4px silver dashed;
-  padding-top:30%;
+  padding-top:40%;
   padding-bottom:30%;
   padding-left:25px;
   padding-right:25px;
@@ -107,4 +107,7 @@ p {
   min-height:50px;
   border-radius: 5px;
   border: 4px silver dashed;
+}
+.add-card-form {
+  display:;
 }

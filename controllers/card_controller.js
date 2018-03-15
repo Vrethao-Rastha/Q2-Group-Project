@@ -12,11 +12,11 @@ module.exports = {
     .where('card_id', req.params.id)
     .insert({
       card_name: req.body.card_name,
-      // ADD CARD CONTENT HERE?
+      parent_column_id: req.params.parent_column_id,
       content: 'Add your content here!'
     })
     .then((results)=>{
-      res.redirect('/single_board')
+      res.redirect('/board/9')
     })
     .catch((error)=>{
         console.log('error:', error);
