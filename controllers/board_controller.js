@@ -30,6 +30,7 @@ module.exports = {
 // [{column_id: 1, column_name: 'blach', cards: [database results for cards within column]},{column_id: 2},{column_id: 3}]
   single_board: function(req, res){
 
+    let boardID = req.params.board_id;
     let newArray = [];
 
     knex('boards')
@@ -74,7 +75,7 @@ module.exports = {
 
 
           res.render('single_board', {
-          boardInfo: finalArray
+          boardInfo: finalArray, boardID: boardID
 
       })
     //   .catch((error)=>{
@@ -94,7 +95,7 @@ module.exports = {
     // console.log(req.session.user[0].id)
     knex('boards')
       .insert({
-        board_name: req.body.board_name,
+        board_name:req.body.board_name,
         owner_id: req.session.user[0].id,
       })
       .returning('board_id')
