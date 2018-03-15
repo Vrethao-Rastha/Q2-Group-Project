@@ -10,9 +10,9 @@ module.exports = {
     knex('cards')
     .where('id', req.params.id)
     .insert({
-      card_name: req.body.card_name
+      card_name: req.body.card_name,
       // ADD CARD CONTENT HERE?
-      //card_content: req.body.card_content
+      content: 'Add your content here!'
     })
     .then((results)=>{
       res.render('single_board', {card:results})
