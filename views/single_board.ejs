@@ -29,7 +29,7 @@
   <div class="container">
     <h2 class=""><%= boardInfo[0].board_name %></h2>
     <form class="" action="/board/update/<%= boardID[0] %>/" method="post">
-      <input type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
+      <input class="form-control" type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
     </form>
     <hr>
     <div class="row">
@@ -102,7 +102,7 @@
               <% } %>
 
               <form class="" action="/delete/column/<%= `${boardInfo[i].column_id}` %>" method="post">
-                <input type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
+                <input class="form-control" type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
                 <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus">
                   <i class="far fa-trash-alt"></i></div></button>
                 </form>
