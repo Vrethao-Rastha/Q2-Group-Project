@@ -16,7 +16,7 @@ module.exports = {
       content: 'Add your content here!'
     })
     .then((results)=>{
-      res.redirect('/board/9')
+      res.redirect(`/board/${req.params.board_id}`)
     })
     .catch((error)=>{
         console.log('error:', error);

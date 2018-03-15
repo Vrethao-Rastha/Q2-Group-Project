@@ -40,6 +40,7 @@ module.exports = {
       .then((result) =>{
         for (let i = 0; i < result.length; i++) {
             newArray.push({
+              board_id:result[i].board_id,
               board_name:result[i].board_name,
               column_id:result[i].column_id,
               column_name:result[i].column_name,

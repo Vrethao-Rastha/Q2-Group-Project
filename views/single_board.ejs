@@ -98,7 +98,7 @@
                 <div class="card-content">
                   <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
                   <div id="addCardForm" class="add-card-form">
-                    <form action="/create/column/<%= boardInfo[i].column_id %>/card" method="post">
+                    <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
                       <input class="form-control" type="text" name="card_name">
                     </form>
                   </div>
