@@ -45,7 +45,7 @@ module.exports = function(app) {
 
   app.get('/cards', card_controller.cards);
 
-  app.post('/create/column/:id/card', card_controller.create_card);
+  app.post('/create/column/:parent_column_id/card', card_controller.create_card);
 
   app.post('/edit/card/:id', card_controller.edit_card);
 

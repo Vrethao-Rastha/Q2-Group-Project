@@ -30,6 +30,25 @@
     <h2 class=""><%= boardInfo[0].board_name %></h2>
     <hr>
     <div class="row">
+
+      <div class="col-md-3">
+
+        <div class="add-single-column">
+
+          <div id="addColumnPlus" class="add-column-plus"><i class="fas fa-plus"></i></div>
+
+          <div id="addColumnForm" class="add-column-form">
+            <form class="" action="/create/column" method="post">
+              <input class="form-control" type="text" name="column_name" placeholder="Enter Column Name">
+              <input type="hidden" name="board_id" value="<%= boardID %>">
+            </form>
+          </div>
+
+
+        </div>
+
+      </div>
+
         <% for (let i = 0; i < boardInfo.length; i++) { %>
           <div class="col-md-3">
 
@@ -73,6 +92,21 @@
 
               </div>
 
+              <!--Add card -->
+
+              <div class="add-single-card">
+                <div class="card-content">
+                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
+                  <div id="addCardForm" class="add-card-form">
+                    <form action="/create/column/<%= boardInfo[i].column_id %>/card" method="post">
+                      <input class="form-control" type="text" name="card_name">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--end add card-->
+
               <% } %>
 
             </div>
@@ -80,24 +114,6 @@
           </div>
 
           <% } %>
-
-          <div class="col-md-3">
-
-            <div class="add-single-column">
-
-              <div id="addColumnPlus" class="add-column-plus"><i class="fas fa-plus"></i></div>
-
-              <div id="addColumnForm" class="add-column-form">
-                <form class="" action="/create/column" method="post">
-                  <input class="form-control" type="text" name="column_name" placeholder="Enter Column Name">
-                  <input type="hidden" name="board_id" value="<%= boardID %>">
-                </form>
-              </div>
-
-
-            </div>
-
-          </div>
 
     </div>
 
