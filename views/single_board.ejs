@@ -39,7 +39,7 @@
 
           <div id="addColumnForm" class="add-column-form">
             <form class="" action="/create/column" method="post">
-              <input class="form-control" type="text" name="column_name" placeholder="Enter Column Name">
+              <input class="form-control" type="text" name="column_name" placeholder="New Column Title">
               <input type="hidden" name="board_id" value="<%= boardID %>">
             </form>
           </div>
@@ -56,6 +56,20 @@
             <div class="single-column">
               <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
               <hr>
+              <!--Add card -->
+
+              <div class="add-single-card">
+                <div class="card-content">
+                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
+                  <div id="addCardForm" class="add-card-form">
+                    <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
+                      <input class="form-control" type="text" name="card_name" placeholder="New Card Title">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--end add card-->
               <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
 
               <div class="single-card">
@@ -75,38 +89,24 @@
                       </button>
                     </div>
                     <!-- MODAL -->
-                    <div class="modal-body">
+                    <form class="" action="/edit/board/<%= boardID[0] %>/card/<%= boardInfo[i].column_cards[j].card_id %>" method="post">
+                      <div class="modal-body">
+                        Card ID (for testing): <%= boardInfo[i].column_cards[j].card_id %>
+                        <textarea name="content" rows="8" cols="80"><%= boardInfo[i].column_cards[j].content %></textarea>
 
-                      <p id="theModalContent"> <%= boardInfo[i].column_cards[j].content %> </p>
+                      </div>
 
 
-                    </div>
-
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-              </div>
-
-              <!--Add card -->
-
-              <div class="add-single-card">
-                <div class="card-content">
-                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
-                  <div id="addCardForm" class="add-card-form">
-                    <form action="/create/column/<%= boardInfo[i].column_id %>/card" method="post">
-                      <input class="form-control" type="text" name="card_name">
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
                     </form>
                   </div>
                 </div>
-              </div>
+                </div>
 
-              <!--end add card-->
+              </div>
 
               <% } %>
 
