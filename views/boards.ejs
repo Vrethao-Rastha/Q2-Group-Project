@@ -39,11 +39,10 @@
           <div class="col-md-3">
             <div class="single-board">
               <a href="/board/<%=`${boardInfo[i].board_id}`%>" onclick="displayBoardNameEditInput('card<%= `${i}` %>')"><div id="boardName"><h3 class="board-name"><%= boardInfo[i].board_name %></h3></div></a>
-              <div id="card<%= `${i}` %>" class="board-name-input">
-                <form class="" action="/create/board" method="post">
-                  <input class="form-control board-name-input" type="text" name="board_name" placeholder="Enter Board Name">
-                </form>
-              </div>
+
+              <form class="" action="/board/update/<%= boardInfo[0].board_id %>/" method="post">
+                <input type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
+              </form>
 
               <form class="" action="/board/delete/<%=`${boardInfo[i].board_id}`%>" method="post">
 

@@ -132,7 +132,7 @@ module.exports = {
       board_name: req.body.board_name,
     })
     .then((result)=>{
-        res.redirect(`/board/${req.params.board_id}`)
+        res.redirect('/board_list')
     })
     .catch((error)=>{
         console.log('error:', error);
