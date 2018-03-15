@@ -32,14 +32,16 @@ module.exports = function(app) {
 
   app.post('/create/board', board_controller.create_board);
 
+  app.post('/board/delete/:board_id', board_controller.delete_board);
+
   //COLUMN CREATION AND EDITING
   app.get('/columns', column_controller.columns);
 
   app.post('/create/column/', column_controller.create_column);
 
-  app.post('edit/column/:id', column_controller.edit_column);
+  app.post('/edit/column/:id', column_controller.edit_column);
 
-  app.post('delete/column/:id', column_controller.delete_column);
+  app.post('/delete/column/:column_id', column_controller.delete_column);
 
   //CARDS ROUTES
 

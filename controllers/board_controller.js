@@ -143,10 +143,10 @@ module.exports = {
 
   delete_board: function(req, res){
     knex('boards')
-    .where('id', req.params.id)
+    .where('board_id', req.params.board_id)
     .del()
     .then(()=>{
-        res.redirect('/boards_list')
+        res.redirect('/board_list')
     })
     .catch((error)=>{
         console.log('error:', error);

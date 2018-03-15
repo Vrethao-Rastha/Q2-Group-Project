@@ -3,7 +3,7 @@ const knex = require("../db/knex.js");
 module.exports = {
 
   columns: function(req, res){
-    
+
   },
 
   create_column: function(req, res){
@@ -48,10 +48,10 @@ module.exports = {
 
   delete_column: function(req, res){
     knex('columns')
-    .where('id', req.params.id)
+    .where('column_id', req.params.column_id)
     .del()
     .then((result)=>{
-        res.render('single_board', {column:result})
+        res.redirect(`/board/${req.body.board_id}`)
     })
     .catch((error)=>{
         console.log('error:', error);

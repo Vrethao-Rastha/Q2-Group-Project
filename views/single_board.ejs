@@ -28,14 +28,24 @@
   </header>
   <div class="container">
     <h2 class=""><%= boardInfo[0].board_name %></h2>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
+    </form>
     <hr>
     <div class="row">
 
         <% for (let i = 0; i < boardInfo.length; i++) { %>
           <div class="col-md-3">
 
+
+
+
             <div class="single-column">
-              <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
+              <div class="column-name"><h4><%= boardInfo[i].column_name %>
+                <form class="" action="/delete/column/<%= `${boardInfo[i].column_id}` %>" method="post">
+                  <input type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
+                  <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus">
+                    <i class="far fa-trash-alt"></i></div></button></form></h4></div>
               <hr>
 
               <!--Add card -->
@@ -73,6 +83,7 @@
                       </button>
                     </div>
                     <!-- MODAL -->
+
                     <form class="" action="/edit/board/<%= boardID[0] %>/card/<%= boardInfo[i].column_cards[j].card_id %>" method="post">
                       <div class="modal-body">
                         Card ID (for testing): <%= boardInfo[i].column_cards[j].card_id %>
@@ -86,6 +97,7 @@
                         <button type="submit" class="btn btn-primary">Save changes</button>
                       </div>
                     </form>
+
                   </div>
                 </div>
                 </div>
