@@ -7,8 +7,6 @@ module.exports = {
   },
 
   create_column: function(req, res){
-
-
     knex('columns')
     .insert({
       board_id: req.body.board_id,
