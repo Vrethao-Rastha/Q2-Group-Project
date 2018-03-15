@@ -32,6 +32,8 @@ module.exports = function(app) {
 
   app.post('/create/board', board_controller.create_board);
 
+  app.post('/board/delete/:board_id', board_controller.delete_board);
+
   //COLUMN CREATION AND EDITING
   app.get('/columns', column_controller.columns);
 

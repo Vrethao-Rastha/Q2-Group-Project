@@ -48,7 +48,6 @@
             </div>
 
           </div>
-
         </div>
 
         <% for (let i = 0; i < boardInfo.length; i++) { %>
@@ -60,6 +59,12 @@
                   <input class="form-control board-name-input" type="text" name="board_name" placeholder="Enter Board Name">
                 </form>
               </div>
+
+              <form class="" action="/board/delete/<%=`${boardInfo[i].board_id}`%>" method="post">
+
+              <button href="/board/delete/<%=`${boardInfo[i].board_id}`%>" type="submit" name="button"><i class="far fa-trash-alt"></i></button>
+
+            </form>
 
             </div>
           </div>
