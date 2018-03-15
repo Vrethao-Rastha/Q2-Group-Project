@@ -63,6 +63,7 @@
                   <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus">
                     <i class="far fa-trash-alt"></i></div></button></form></h4></div>
               <hr>
+
               <!--Add card -->
 
               <div class="add-single-card">
@@ -77,16 +78,18 @@
               </div>
 
               <!--end add card-->
+
               <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
 
               <div class="single-card">
+
                 <div class="card-name">
                   <h5><%= boardInfo[i].column_cards[j].card_name %></h5>
                 </div>
                 <div class="card-content">
-                  <a href="#"  data-toggle="modal" data-target="#theModal-<%= `${j}` %>"><p><%= boardInfo[i].column_cards[j].content %></p></a>
+                  <a href="#"  data-toggle="modal" data-target="#theModal-<%= boardInfo[i].column_cards[j].card_id %>"><p><%= boardInfo[i].column_cards[j].content %></p></a>
                 </div>
-                <div class="modal fade" id="theModal-<%= `${j}` %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="theModal-<%= boardInfo[i].column_cards[j].card_id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
