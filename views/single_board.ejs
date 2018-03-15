@@ -55,6 +55,20 @@
             <div class="single-column">
               <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
               <hr>
+              <!--Add card -->
+
+              <div class="add-single-card">
+                <div class="card-content">
+                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
+                  <div id="addCardForm" class="add-card-form">
+                    <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
+                      <input class="form-control" type="text" name="card_name">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--end add card-->
               <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
 
               <div class="single-card">
@@ -91,21 +105,6 @@
                 </div>
 
               </div>
-
-              <!--Add card -->
-
-              <div class="add-single-card">
-                <div class="card-content">
-                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
-                  <div id="addCardForm" class="add-card-form">
-                    <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
-                      <input class="form-control" type="text" name="card_name">
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <!--end add card-->
 
               <% } %>
 
