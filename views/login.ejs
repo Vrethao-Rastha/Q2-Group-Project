@@ -30,14 +30,16 @@
 
     <h2>Login</h2>
 
+    <div class="login-register-form">
+      <form class="login-form form-group" action="/login" method="post">
+        <input class="form-control" type="text" name="user_name" value="" placeholder="Username">
+        <input class="form-control" type="email" name="email" placeholder="Email">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+        <button class="btn btn-primary" type="submit">Login</button>
 
-    <form class="login-form" action="/login" method="post">
-      <input type="text" name="user_name" value="" placeholder="Username">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
 
-    </form>
 
 
 

@@ -155,10 +155,10 @@ footer {
 }
 .banner {
   background-color: red;
-  min-height: 200px;
+  min-height: 800px;
   background-image: url('http://s966.info/library/w/work-desk-background/work-desk-background-03.jpg');
   background-size:cover;
-  padding:100px 0;
+  padding:250px 0;
 }
 .headline {
   font-size: 70px;
@@ -191,4 +191,8 @@ footer {
 .icon-title {
   color:#007bff;
   font-size:30px;
+}
+.login-register-form {
+  max-width:40%;
+  margin:auto;
 }
