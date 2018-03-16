@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Carter+One|Fugaz+One');
-
+.wrapper {
+  min-height:90vh;
+  text-align: center;
+  padding: 0 50px;
+}
 h2 {
   color:silver;
   margin-top:10px;
@@ -37,10 +41,6 @@ footer {
 .navbar {
   padding:10px 11%;
 }
-
-.container {
-  text-align: center;
-}
 .fa-clone {
   font-size:26px;
 }
@@ -52,12 +52,12 @@ footer {
   margin-top:25px;
   border-radius:7px;
   padding-top:40%;
-  padding-bottom:40%;
+  padding-bottom:30%;
   box-shadow: 1px 1px 2px silver;
 }
 .add-single-board {
   min-width: 200px;
-  min-height:200px;
+  min-height:270px;
   margin-top:25px;
   border: 4px silver dashed;
   border-radius:7px;
@@ -66,7 +66,9 @@ footer {
 
 }
 .single-column {
-  min-width: 270px;
+  margin-left:auto;
+  margin-right:auto;
+  width: 100%;
   min-height:200px;
   background-color: #f2f2f2;
   margin-top:25px;
@@ -113,15 +115,14 @@ footer {
   display:none;
 }
 .add-single-column {
-  min-width: 250px;
-  min-height:305px;
+  max-width: 250px;
+  min-height:250px;
   margin-top:25px;
   border-radius:7px;
   border: 4px silver dashed;
-  padding-top:45%;
+  padding-top:30%;
   padding-bottom:30%;
-  padding-left:25px;
-  padding-right:25px;
+
 }
 .add-column-plus {
   font-size: 25px;

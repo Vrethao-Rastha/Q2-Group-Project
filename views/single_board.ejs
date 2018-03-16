@@ -19,15 +19,14 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/board_list">My Boards <span class="sr-only">(current)</span></a>
-          </li>
         </ul>
       </div>
+      <a class="navbar-brand" href="/board_list">my boards</a>
       <a class="navbar-brand" href="/logout">logout</a>
     </nav>
   </header>
-  <div class="container">
+  <div class="wrapper">
+
     <div id="theBoardTitle"><h2 class=""><%= boardInfo[0].board_name %></h2></div>
     <div class="the-board-title-form" id="theBoardTitleForm"><form class="" action="/board/update/<%= boardID[0] %>/" method="post">
       <input class="form-control the-board-title-form-input" type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
@@ -36,10 +35,7 @@
     <hr>
     <div class="row">
         <% for (let i = 0; i < boardInfo.length; i++) { %>
-          <div class="col-md-3">
-
-
-
+          <div class="col-md-2">
 
             <div class="single-column">
 
@@ -65,6 +61,8 @@
               </div>
 
               <!--end add card-->
+
+
 
               <% for (let j = 0; j < boardInfo[i].column_cards.length; j++) { %>
 
@@ -152,16 +150,13 @@
 
 <!-- MODAL -->
 
-</div><!--end container div-->
+</div><!--end wrapper div-->
 
 <footer>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div style="color:white">Copyright 2018 | Cardify.it</div>
   </nav>
 </footer>
-
-
-
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/js/single_board.js"></script>
