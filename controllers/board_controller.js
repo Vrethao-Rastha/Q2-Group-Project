@@ -5,11 +5,13 @@ module.exports = {
   //NEEDS USER ID IN ROUTE (/:ID)
   boards: function(req, res){
 
+    let userID = req.session.user
+
     knex('boards')
     // BAND-AID TO LOAD WITH TEST DATA, CHANGE FROM USER AT [0] ONCE WE CAN ADD BOARDS FROM INSIDE THE APP
       .where('owner_id', req.session.user[0].id)
       .then((result)=>{
-        res.render('boards',{boardInfo:result})
+        res.render('boards',{boardInfo:result, userID: userID})
       })
       .catch((error)=>{
         console.log(error);
@@ -132,6 +134,9 @@ module.exports = {
       board_name: req.body.board_name,
     })
     .then((result)=>{
+      console.log(req.params.board_id)
+      console.log(req.body.board_name)
+      console.log('hit the update route')
         res.redirect('back')
     })
     .catch((error)=>{

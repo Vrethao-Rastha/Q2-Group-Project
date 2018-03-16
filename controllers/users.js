@@ -48,6 +48,7 @@ module.exports = {
         }
         if (results[0].is_admin == true && results[0].password == req.body.password){
 
+          req.session.user.push(results[0]);
           req.session.admin.push(results[0]);
           req.session.save(() => {
             res.redirect('/admin_page')
@@ -83,7 +84,8 @@ module.exports = {
   },
 
   admin_logout: function(req, res){
+    req.session.user = []
     req.session.admin = []
-    res.redirect('/login');
+    res.redirect('/');
   },
 }

@@ -35,12 +35,13 @@
   <div class="wrapper">
     <h2>Admin</h2>
     <hr>
-
+    <div class="row">
 
 
   <% for (let i = 0; i < theBoards.length; i++) { %>
     <div class="col-md-3">
       <div class="single-board">
+        <p><%= theBoards[i].user_name %>'s board</p>
         <a href="/board/<%=`${theBoards[i].board_id}`%>" onclick="displayBoardNameEditInput('card<%= `${i}` %>')"><div id="boardName"><h3 class="board-name"><%= theBoards[i].board_name %></h3></div></a>
         <div id="card<%= `${i}` %>" class="board-name-input">
           <form class="" action="/create/board" method="post">
