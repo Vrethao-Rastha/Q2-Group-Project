@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Carter+One|Fugaz+One');
+
 h2 {
   color:silver;
   margin-top:10px;
@@ -12,12 +14,19 @@ p {
 textarea {
   max-width:100%;
 }
+.logo {
+  font-family: Baloo Thambi;
+  font-size: 34px;
+}
 .navbar {
   padding:10px 11%;
 }
 
 .container {
   text-align: center;
+}
+.fa-clone {
+  font-size:26px;
 }
 
 .single-board {
@@ -116,4 +125,16 @@ textarea {
 }
 .add-card-form {
   display:;
+}
+.the-board-title-form {
+  margin-top:20px;
+  display:none;
+}
+.the-board-title-form-input {
+  text-align: center;
+  font-size: 30px;
+  color:silver;
+}
+.the-column-title-form {
+  display:none;
 }

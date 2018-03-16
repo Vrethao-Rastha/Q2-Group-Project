@@ -7,3 +7,13 @@ document.getElementById('addCardPlus').addEventListener('click', () => {
   document.getElementById('addCardForm').style.display = "block";
   document.getElementById('addCardPlus').style.display = "none";
 })
+
+document.getElementById('theBoardTitle').addEventListener('click', () => {
+  document.getElementById('theBoardTitleForm').style.display = "block";
+  document.getElementById('theBoardTitle').style.display = "none";
+})
+
+document.getElementById('theColumnTitle').addEventListener('click', () => {
+  document.getElementById('theColumnTitleForm').style.display = "block";
+  document.getElementById('theColumnTitle').style.display = "none";
+})
