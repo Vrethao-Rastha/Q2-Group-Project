@@ -20,6 +20,11 @@ module.exports = function(app) {
 
   app.post('/register', users.register);
 
+  //admin login moved above blocking middleware
+  app.get('/admin_login', users.admin_login);
+
+  app.post('/admin', users.admin_auth);
+
   //Non user page blocking middleware
   app.use(authMiddleware);
 
@@ -57,9 +62,9 @@ module.exports = function(app) {
 
   //ADMIN ROUTES
 
-  app.get('/admin_login', users.admin_login);
 
-  app.post('/admin', users.admin_auth);
+
+
 
   app.use(authAdmin);
 

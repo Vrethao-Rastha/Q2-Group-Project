@@ -14,7 +14,7 @@ module.exports = {
       .where('board_id', req.params.id)
         .del()
         .then(()=>{
-          res.redirect('/admin')
+          res.redirect('/admin_page')
         })
         .catch((error)=>{
           console.log(error);
