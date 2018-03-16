@@ -31,8 +31,8 @@ module.exports = {
         card_name: req.body.card_name,
         content: req.body.content
       })
-      .then((result)=>{
-          res.redirect(`/board/${req.params.board_id}`)
+      .then((results)=>{
+          res.redirect('back')
       })
       .catch((error)=>{
           console.log('error:', error);
@@ -41,7 +41,6 @@ module.exports = {
     },
 
     delete_card: function(req, res){
-      console.log("delete card route")
       knex('cards')
       .where('card_id', req.params.card_id)
       .del()

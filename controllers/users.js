@@ -84,7 +84,8 @@ module.exports = {
   },
 
   admin_logout: function(req, res){
+    req.session.user = []
     req.session.admin = []
-    res.redirect('/login');
+    res.redirect('/');
   },
 }
