@@ -155,10 +155,10 @@ footer {
 }
 .banner {
   background-color: red;
-  min-height: 800px;
+  min-height: 900px;
   background-image: url('http://s966.info/library/w/work-desk-background/work-desk-background-03.jpg');
   background-size:cover;
-  padding:250px 0;
+  padding:350px 0;
 }
 .headline {
   font-size: 70px;
