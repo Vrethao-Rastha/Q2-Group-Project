@@ -14,6 +14,22 @@ p {
 textarea {
   max-width:100%;
 }
+input {
+  color:silver;
+}
+footer {
+  margin-top:50px;
+}
+.trash-button {
+  border:none;
+  background-color:#f2f2f2;
+  margin-top:20px;
+}
+.fa-trash-alt {
+  color:gray;
+  font-size: 22px;
+
+}
 .logo {
   font-family: Baloo Thambi;
   font-size: 34px;
@@ -50,7 +66,7 @@ textarea {
 
 }
 .single-column {
-  min-width: 250px;
+  min-width: 270px;
   min-height:200px;
   background-color: #f2f2f2;
   margin-top:25px;
@@ -86,7 +102,7 @@ textarea {
   color: silver;
 }
 .form-control {
-  max-width:90%;
+  max-width:100%;
   margin:auto;
   padding-left:;
 }
@@ -98,11 +114,11 @@ textarea {
 }
 .add-single-column {
   min-width: 250px;
-  min-height:250px;
+  min-height:305px;
   margin-top:25px;
   border-radius:7px;
   border: 4px silver dashed;
-  padding-top:40%;
+  padding-top:45%;
   padding-bottom:30%;
   padding-left:25px;
   padding-right:25px;
@@ -113,15 +129,6 @@ textarea {
 }
 .add-column-form {
   display:none;
-}
-.add-single-card:hover {
-  margin-top:10px;
-  margin-bottom:10px;
-  padding-top:10%;
-  padding-bottom:10%;
-  min-height:50px;
-  border-radius: 5px;
-  border: 4px silver dashed;
 }
 .add-card-form {
   display:;
