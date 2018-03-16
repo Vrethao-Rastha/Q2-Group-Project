@@ -12,7 +12,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Cardify</a>
+      <a class="navbar-brand" href="#"><div class="logo"><i class="fa fa-clone"></i> Cardify</div></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -28,10 +28,11 @@
     </nav>
   </header>
   <div class="container">
-    <h2 class=""><%= boardInfo[0].board_name %></h2>
-    <form class="" action="/board/update/<%= boardID[0] %>/" method="post">
-      <input class="form-control" type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
+    <div id="theBoardTitle"><h2 class=""><%= boardInfo[0].board_name %></h2></div>
+    <div class="the-board-title-form" id="theBoardTitleForm"><form class="" action="/board/update/<%= boardID[0] %>/" method="post">
+      <input class="form-control the-board-title-form-input" type="text" name="board_name" value="<%= boardInfo[0].board_name %>">
     </form>
+  </div>
     <hr>
     <div class="row">
         <% for (let i = 0; i < boardInfo.length; i++) { %>
@@ -41,19 +42,20 @@
 
 
             <div class="single-column">
-              <div class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
 
-              <form class="" action="/edit/column/<%= boardInfo[i].column_id %>" method="post">
-                <input class="form-control" type="text" name="column_name" value="<%= boardInfo[i].column_name %>">
-              </form>
+              <div id="theColumnTitle" class="column-name"><h4><%= boardInfo[i].column_name %></h4></div>
 
+              <div id ="theColumnTitleForm" class="the-column-title-form">
+                <form class="" action="/edit/column/<%= boardInfo[i].column_id %>" method="post">
+                  <input class="form-control" type="text" name="column_name" value="<%= boardInfo[i].column_name %>">
+                </form>
+              </div>
               <hr>
 
               <!--Add card -->
 
               <div class="add-single-card">
                 <div class="card-content">
-                  <div id="addCardPlus" class="add-card-plus"><i class="fas fa-plus"></div></i>
                   <div id="addCardForm" class="add-card-form">
                     <form action="/create/board/<%= boardID[0] %>/column/<%= boardInfo[i].column_id %>/card %>" method="post">
                       <input class="form-control" type="text" name="card_name" placeholder="New Card Title">
@@ -82,7 +84,7 @@
                       <input class="form-control" type="text" name="card_name" value="<%= boardInfo[i].column_cards[j].card_name %>">
                       <!--button type="button" class="close" data-dismiss="modal" aria-label="Close"-->
                         <!--span aria-hidden="true">&times;</span-->
-                      </button>
+                      <!--/button-->
                     </div>
                     <!-- MODAL -->
 
@@ -110,8 +112,9 @@
 
               <form class="" action="/delete/column/<%= `${boardInfo[i].column_id}` %>" method="post">
                 <input class="form-control" type="hidden" name="board_id" value="<%= boardInfo[i].board_id %>">
-                <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit"><div id="addBoardPlus" class="add-board-plus">
-                  <i class="far fa-trash-alt"></i></div></button>
+                <button href="/delete/column/<%= `${boardInfo[i].column_id}` %>" type="submit" class="trash-button">
+                  <i class="far fa-trash-alt"></i>
+                </button>
                 </form>
 
             </div>
@@ -151,6 +154,11 @@
 
 </div><!--end container div-->
 
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div style="color:white">Copyright 2018 | Cardify.it</div>
+  </nav>
+</footer>
 
 
 
