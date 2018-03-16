@@ -4,6 +4,7 @@ module.exports = {
 
   home_page: function(req, res){
     knex('boards')
+    .innerJoin('users', 'boards.owner_id', 'users.id')
     .then((results)=>{
       res.render('admin', {theBoards:results})
     })
