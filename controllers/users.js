@@ -30,6 +30,37 @@ module.exports = {
 
   },
 
+  admin_login: function(req, res){
+    if(!req.session.admin){
+      req.session.admin = []
+    }
+    res.render('admin_login')
+  },
+
+  admin_auth: function(req, res) {
+    let loginEmail = req.body.email;
+    let loginUsername = req.body.user_name;
+    let loginPassword = req.body.password;
+    knex('users').where('email', req.body.email)
+      .then((results) => {
+        if (!results[0]) {
+          res.redirect('/login');
+        }
+        if (results[0].is_admin == true && results[0].password == req.body.password){
+
+          req.session.admin.push(results[0]);
+          req.session.save(() => {
+            res.redirect('/admin_page')
+          });
+
+        } else {
+          res.redirect('/login');
+        }
+      })
+
+
+  },
+
   displayregister: function(req, res) {
     res.render('register');
   },
@@ -49,5 +80,10 @@ module.exports = {
     req.session.user = []
     res.redirect('/login');
 
+  },
+
+  admin_logout: function(req, res){
+    req.session.admin = []
+    res.redirect('/login');
   },
 }

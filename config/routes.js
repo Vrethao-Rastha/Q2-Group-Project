@@ -56,10 +56,27 @@ module.exports = function(app) {
   app.get('/delete/board/:board_id/card/:card_id', card_controller.delete_card);
 
   //ADMIN ROUTES
-  app.get('/admin', admin.home_page)
 
-  app.post('/delete/board/:id', admin.delete_board )
+  app.get('/admin_login', users.admin_login);
 
+  app.post('/admin', users.admin_auth);
+
+  app.use(authAdmin);
+
+  app.get('/admin_page', admin.home_page);
+
+  app.post('/delete/board/:id', admin.delete_board);
+
+  app.get('/admin_logout', users.admin_logout);
+
+}
+
+function authAdmin(req, res, next){
+  if(!req.session.admin[0]){
+    res.redirect('/login')
+  }else{
+    next();
+  }
 }
 
 function authMiddleware(req, res, next) {
