@@ -67,6 +67,8 @@ module.exports = function(app) {
 
   app.post('/delete/board/:id', admin.delete_board);
 
+  app.get('/admin_logout', users.admin_logout);
+
 }
 
 function authAdmin(req, res, next){
